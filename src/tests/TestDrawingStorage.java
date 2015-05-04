@@ -26,7 +26,7 @@ public class TestDrawingStorage {
 		Date d = new Date(21,12,2012);
 		Drawing t = new Drawing(i,"blauw", d);
 		assertFalse(ds.getdList().contains(t));
-		ds.AddDrawing(t);
+		ds.addDrawing(t);
 		assertTrue(ds.getdList().contains(t));
 	}
 	/** Tests if the toString method outputs the String in the right format*/
@@ -38,8 +38,8 @@ public class TestDrawingStorage {
 		Date d2 = new Date(21,12,2014);
 		Drawing t = new Drawing(i,"blauw", d);
 		Drawing t2 = new Drawing(i,"blauw", d2);
-		ds.AddDrawing(t);
-		ds.AddDrawing(t2);
+		ds.addDrawing(t);
+		ds.addDrawing(t2);
 		assertEquals(ds.toString(),"21/12/2012, 1, 2, 3, 4, 5, blauw\n21/12/2014, 1, 2, 3, 4, 5, blauw\n");
 		
 	}

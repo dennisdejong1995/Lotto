@@ -29,8 +29,28 @@ public class DrawingStorage {
 	 * 
 	 * @param drawing
 	 */
-	public void AddDrawing(Drawing drawing){
+	public void addDrawing(Drawing drawing){
 		dList.add(drawing);
+	}
+	public void removeDrawing(Drawing drawing){
+		dList.remove(drawing);
+	}
+	
+	/** Swaps a Drawing in the dList with a given Drawing based on the given Date.
+	 * 
+	 * @param d
+	 * @param drawing
+	 */
+	public void editDrawing(Date d, Drawing drawing){
+		Drawing dr = null;
+		for(Drawing dr2 : dList){
+			if(dr2.getDate().equals(d)){
+				dr = dr2;
+			}
+		}
+		dList.remove(dr);
+		dList.add(drawing);
+		
 	}
 	/** Returns a DrawingStorage as String.
 	 * 
@@ -58,7 +78,7 @@ public class DrawingStorage {
 			int i = sc.nextInt();
 			for(int j=0; j < i; j++){
 				Drawing drawing = Drawing.read(sc);
-				drawingStorage.AddDrawing(drawing);
+				drawingStorage.addDrawing(drawing);
 			}
 			sc.close();
 		} 
