@@ -138,6 +138,7 @@ public class Menu {
 		ds.addDrawing(drawing);
 		ds.write("input");
 	}
+	
 	public static int[] numbersIn(){
 		System.out.println("First:");
 		int[] i = {-1,-1,-1,-1,-1,-1};
