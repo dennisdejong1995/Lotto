@@ -9,7 +9,7 @@ import java.util.Scanner;
 /** Class that runs the menu of the program.
  * 
  * @author Dennis de Jong
- * @version 03-05-2015
+ * @version 04-05-2015
  */
 public class Menu {
 	private static int p = 1;
