@@ -9,7 +9,11 @@ import main.Drawing;
 
 import org.junit.AfterClass;
 import org.junit.Test;
-
+/** Class that tests Drawing
+ * 
+ * @author Dennis de Jong
+ * @version 04-05-2015
+ */
 public class TestDrawing {
 
 	@AfterClass
@@ -25,7 +29,7 @@ public class TestDrawing {
 		assertEquals(t.toString(),"21/12/2012 1, 2, 3, 4, 5, blauw");
 	}
 	
-	
+	/**Tests the equals method*/
 	@Test
 	public void testEquals() {
 		int[] i = {1,2,3,4,5};
@@ -39,7 +43,7 @@ public class TestDrawing {
 		assertFalse(t.equals(t3));
 		assertFalse(t.equals(t4));
 	}
-	
+	/**Tests the read method*/
 	@Test
 	public void testRead() {
 		int[] i = new int[]{1,2,3,4,5};
@@ -49,6 +53,13 @@ public class TestDrawing {
 		Drawing d = Drawing.read(sc);
 		Drawing d2 = new Drawing(i,"blauw",date);
 		assertTrue(d.equals(d2));
+	}
+	@Test
+	public void testWrite() {
+		int[] i = new int[]{1,2,3,4,5};
+		Date d = new Date(21,12,2012);
+		Drawing t = new Drawing(i,"blauw", d);
+		assertEquals(t.write(),"21/12/2012 1 2 3 4 5 blauw\n");
 	}
 
 }
