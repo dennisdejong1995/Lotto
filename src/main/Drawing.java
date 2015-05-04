@@ -34,7 +34,10 @@ public class Drawing {
 	public int[] getNumbers() {
 		return numbers;
 	}
-	
+	/** Returns date.
+	 * 
+	 * @return Date
+	 */
 	public Date getDate() {
 		return date;
 	}
@@ -69,7 +72,11 @@ public class Drawing {
 		}
 		return false;
 	}
-	
+	/** Reads a Drawing from a txt file and returns it.
+	 * 
+	 * @param sc
+	 * @return Drawing
+	 */
 	public static Drawing read(Scanner sc){
 		
 		String sdate = sc.next();
@@ -90,6 +97,10 @@ public class Drawing {
 		Drawing d = new Drawing(i,color, date);
 		return d;
 	}
+	/** Returns a Drawing as a String to be written
+	 * 
+	 * @return String
+	 */
 	public String write() {
 		return this.date.toString() + " " +this.numbers[0] + " " + this.numbers[1] + " " + this.numbers[2] + " " + this.numbers[3] + " " + this.numbers[4] + " " + this.colour + "\n";
 	}
