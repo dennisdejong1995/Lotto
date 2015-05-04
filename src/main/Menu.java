@@ -56,6 +56,7 @@ public class Menu {
 	/** Method to close the program*/
 	public static void closeProgram() {
 		p = 0;
+		System.out.println("Program is closed.");
 	}
 
 	/** Method that prints the list of Drawings in the txt file.
