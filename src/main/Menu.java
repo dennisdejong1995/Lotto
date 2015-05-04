@@ -106,10 +106,10 @@ public class Menu {
 				o = 1;
 			} else if(n == 3) {
 				System.out.println("Enter the correct Colour:");
-				
+
 				colour = colourIn();
 				o = 1;
-				
+
 			} else {
 				System.out.println("Not a valid choice.");
 			}	
@@ -125,20 +125,20 @@ public class Menu {
 	 */
 	public static void addDrawing() throws IOException {
 		DrawingStorage ds = DrawingStorage.read("input");
-		
+
 		System.out.println("Please enter the date of this drawing");
 		Date date = dateIn();
 		System.out.println("Please enter the numbers of this drawing.");
 		int[] i = numbersIn();
-		
+
 		System.out.println("Please enter the colour of this drawing");
 		String s = colourIn();
-		
+
 		Drawing drawing = new Drawing(i,s,date);
 		ds.addDrawing(drawing);
 		ds.write("input");
 	}
-	
+
 	public static int[] numbersIn(){
 		System.out.println("First:");
 		int[] i = {-1,-1,-1,-1,-1,-1};
@@ -150,7 +150,7 @@ public class Menu {
 		}
 
 		System.out.println("Second:");
-		
+
 		while(i[1] < 1 || i[1] > 45){
 			i[1] = sc.nextInt();
 			if(i[1] < 1 || i[1] > 45){
@@ -225,7 +225,7 @@ public class Menu {
 		Date date = new Date(day, month, year);
 		return date;
 	}
-	
+
 	public static String colourIn(){
 		String s = "";
 		while(!s.equals("blauw") && !s.equals("rood") && !s.equals("groen") && !s.equals("geel") && !s.equals("paars") && !s.equals("oranje")){
