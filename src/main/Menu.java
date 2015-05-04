@@ -73,36 +73,9 @@ public class Menu {
 	 */
 	public static void editList() throws FileNotFoundException {
 		DrawingStorage ds = DrawingStorage.read("input");
-		int k = 0, l = 0, m = 0, n = 0, o = 0, day = 0, month = 0, year = 0;
+		int n = 0, o = 0;
 		System.out.println("Please enter the date of the drawing you want to edit.");
-		while(k == 0){
-			System.out.println("Day:");
-			day = sc.nextInt();
-			if(day <= 31 && day >= 1){
-				k = 1;
-			} else {
-				System.out.println("Not a valid day.");
-			}
-		}
-		while(l == 0){
-			System.out.println("Month:");
-			month = sc.nextInt();
-			if(month <= 12 && month >= 1){
-				l = 1;
-			} else {
-				System.out.println("Not a valid month.");
-			}
-		}
-		while(m == 0){
-			System.out.println("Year:");
-			year = sc.nextInt();
-			if(year >=  minYear && year <= maxYear){
-				m = 1;
-			} else {
-				System.out.println("Not a valid year");
-			}
-		}
-		Date date = new Date(day, month, year);
+		Date date = dateIn();
 		Drawing dr = null;
 		ArrayList<Drawing> dl = ds.getdList();
 		for(Drawing d : dl){
@@ -117,9 +90,6 @@ public class Menu {
 		int[] numbers = dr.getNumbers();
 		String colour = dr.getColour();
 		Date date2 = dr.getDate();
-		k = 0;
-		l = 0;
-		m = 0;
 		while(o == 0){
 			System.out.println("What do you want to edit?");
 			System.out.println("1) Date");
@@ -128,100 +98,25 @@ public class Menu {
 			n = sc.nextInt();
 			if(n == 1){
 				System.out.println("Enter the correct date:");
-				while(k == 0){
-					System.out.println("Day:");
-					day = sc.nextInt();
-					if(day <= 31 && day >= 1){
-						k = 1;
-					} else {
-						System.out.println("Not a valid day.");
-					}
-				}
-				while(l == 0){
-					System.out.println("Month:");
-					month = sc.nextInt();
-					if(month <= 12 && month >= 1){
-						l = 1;
-					} else {
-						System.out.println("Not a valid month.");
-					}
-				}
-				while(m == 0){
-					System.out.println("Year:");
-					year = sc.nextInt();
-					if(year >=  minYear && year <= maxYear){
-						m = 1;
-					} else {
-						System.out.println("Not a valid year");
-					}
-				}
-				
-				date2 = new Date(day, month, year);
+				date2 = dateIn();
 				o = 1;
 			} else if(n == 2) {
 				System.out.println("Enter the correct Numbers:");
-				int[] i = new int[5];
-				System.out.println("First:");
-				while(i[0] < 1 || i[0] > 45){
-					i[0] = sc.nextInt();
-					if(i[0] < 1 || i[0] > 45){
-						System.out.println("You did not enter a correct number, please try again");
-					}
-				}
-
-				System.out.println("Second:");
-				while(i[1] < 1 || i[1] > 45){
-					i[1] = sc.nextInt();
-					if(i[1] < 1 || i[1] > 45){
-						System.out.println("You did not enter a correct number, please try again");
-					}
-				}
-
-				System.out.println("Third:");
-				while(i[2] < 1 || i[2] > 45){
-					i[2] = sc.nextInt();
-					if(i[2] < 1 || i[2] > 45){
-						System.out.println("You did not enter a correct number, please try again");
-					}
-				}
-
-				System.out.println("Fourth:");
-				while(i[3] < 1 || i[3] > 45){
-					i[3] = sc.nextInt();
-					if(i[3] < 1 || i[3] > 45){
-						System.out.println("You did not enter a correct number, please try again");
-					}
-				}
-
-				System.out.println("Fifth:");
-				while(i[4] < 1 || i[4] > 45){
-					i[4] = sc.nextInt();
-					if(i[4] < 1 || i[4] > 45){
-						System.out.println("You did not enter a correct number, please try again");
-					}
-				}
-				numbers = i;
+				numbers = numbersIn();
 				o = 1;
 			} else if(n == 3) {
 				System.out.println("Enter the correct Colour:");
-				String s = "";
-				while(!s.equals("blauw") && !s.equals("rood") && !s.equals("groen") && !s.equals("geel") && !s.equals("paars")){
-					s = sc.next();
-					s = s.toLowerCase();
-					if(!s.equals("blauw") && !s.equals("rood") && !s.equals("groen") && !s.equals("geel") && !s.equals("paars")){
-						System.out.println("You did not enter a correct colour, please try again");
-					}
-				}
-				colour = s;
+				
+				colour = colourIn();
 				o = 1;
 				
 			} else {
 				System.out.println("Not a valid choice.");
-			}
-			dr = new Drawing(numbers, colour, date2);
-			ds.editDrawing(date, dr);
-			ds.write("Input");
+			}	
 		}
+		dr = new Drawing(numbers, colour, date2);
+		ds.editDrawing(date, dr);
+		ds.write("Input");
 	}
 
 	/** Method that lets the user add a Drawing to the txt file.
@@ -230,43 +125,22 @@ public class Menu {
 	 */
 	public static void addDrawing() throws IOException {
 		DrawingStorage ds = DrawingStorage.read("input");
-		int[] i = {-1,-1,-1,-1,-1};
-		String s = "false";
-		int day = 0;
-		int month = 0;
-		int year = 0;
-		int k = 0, l = 0, m = 0;
+		
 		System.out.println("Please enter the date of this drawing");
-		while(k == 0){
-			System.out.println("Day:");
-			day = sc.nextInt();
-			if(day <= 31 && day >= 1){
-				k = 1;
-			} else {
-				System.out.println("Not a valid day.");
-			}
-		}
-		while(l == 0){
-			System.out.println("Month:");
-			month = sc.nextInt();
-			if(month <= 12 && month >= 1){
-				l = 1;
-			} else {
-				System.out.println("Not a valid month.");
-			}
-		}
-		while(m == 0){
-			System.out.println("Year:");
-			year = sc.nextInt();
-			if(year >=  minYear && year <= maxYear){
-				m = 1;
-			} else {
-				System.out.println("Not a valid year");
-			}
-		}
+		Date date = dateIn();
 		System.out.println("Please enter the numbers of this drawing.");
-
+		int[] i = numbersIn();
+		
+		System.out.println("Please enter the colour of this drawing");
+		String s = colourIn();
+		
+		Drawing drawing = new Drawing(i,s,date);
+		ds.addDrawing(drawing);
+		ds.write("input");
+	}
+	public static int[] numbersIn(){
 		System.out.println("First:");
+		int[] i = {-1,-1,-1,-1,-1,-1};
 		while(i[0] < 1 || i[0] > 45){
 			i[0] = sc.nextInt();
 			if(i[0] < 1 || i[0] > 45){
@@ -305,18 +179,60 @@ public class Menu {
 				System.out.println("You did not enter a correct number, please try again");
 			}
 		}
-		System.out.println("Please enter the colour of this drawing");
-		while(!s.equals("blauw") && !s.equals("rood") && !s.equals("groen") && !s.equals("geel") && !s.equals("paars")){
-			s = sc.next();
-			s = s.toLowerCase();
-			if(!s.equals("blauw") && !s.equals("rood") && !s.equals("groen") && !s.equals("geel") && !s.equals("paars")){
-				System.out.println("You did not enter a correct colour, please try again");
+		System.out.println("Sixth:");
+		while(i[5] < 1 || i[5] > 45){
+			i[5] = sc.nextInt();
+			if(i[5] < 1 || i[5] > 45){
+				System.out.println("You did not enter a correct number, please try again");
+			}
+		}
+		return i;
+	}
+	public static Date dateIn(){
+		int day = 0;
+		int month = 0;
+		int year = 0;
+		int k = 0, l = 0, m = 0;
+		while(k == 0){
+			System.out.println("Day:");
+			day = sc.nextInt();
+			if(day <= 31 && day >= 1){
+				k = 1;
+			} else {
+				System.out.println("Not a valid day.");
+			}
+		}
+		while(l == 0){
+			System.out.println("Month:");
+			month = sc.nextInt();
+			if(month <= 12 && month >= 1){
+				l = 1;
+			} else {
+				System.out.println("Not a valid month.");
+			}
+		}
+		while(m == 0){
+			System.out.println("Year:");
+			year = sc.nextInt();
+			if(year >=  minYear && year <= maxYear){
+				m = 1;
+			} else {
+				System.out.println("Not a valid year");
 			}
 		}
 		Date date = new Date(day, month, year);
-		Drawing drawing = new Drawing(i,s,date);
-		ds.addDrawing(drawing);
-		ds.write("input");
+		return date;
 	}
-
+	
+	public static String colourIn(){
+		String s = "";
+		while(!s.equals("blauw") && !s.equals("rood") && !s.equals("groen") && !s.equals("geel") && !s.equals("paars") && !s.equals("oranje")){
+			s = sc.next();
+			s = s.toLowerCase();
+			if(!s.equals("blauw") && !s.equals("rood") && !s.equals("groen") && !s.equals("geel") && !s.equals("paars") && !s.equals("oranje")){
+				System.out.println("You did not enter a correct colour, please try again");
+			}
+		}
+		return s;
+	}
 }

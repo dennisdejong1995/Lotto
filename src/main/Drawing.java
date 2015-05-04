@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  */
 public class Drawing {
 
-	private int[] numbers = new int[5];
+	private int[] numbers = new int[6];
 	private String colour;
 	private Date date;
 	
@@ -89,8 +89,8 @@ public class Drawing {
 		sca.useDelimiter(p);
 		sca.close();
 		Date date = new Date(day, month, year);
-		int[] i = new int[5];
-		for(int j = 0; j < 5; j++){
+		int[] i = new int[6];
+		for(int j = 0; j < 6; j++){
 			i[j] = sc.nextInt();
 		}
 		String color = sc.next();
@@ -102,6 +102,6 @@ public class Drawing {
 	 * @return String
 	 */
 	public String write() {
-		return this.date.toString() + " " +this.numbers[0] + " " + this.numbers[1] + " " + this.numbers[2] + " " + this.numbers[3] + " " + this.numbers[4] + " " + this.colour + "\n";
+		return this.date.toString() + " " +this.numbers[0] + " " + this.numbers[1] + " " + this.numbers[2] + " " + this.numbers[3] + " " + this.numbers[4] + " " + this.numbers[5] + " " + this.colour + "\n";
 	}
 }
