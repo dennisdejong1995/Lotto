@@ -5,7 +5,7 @@ import main.Date;
 
 import org.junit.AfterClass;
 import org.junit.Test;
-/** Class that tests Date
+/** Class that tests Date.
  * 
  * @author Dennis de Jong
  * @version 04-05-2015
@@ -15,13 +15,13 @@ public class TestDate {
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
-	/** Tests the constructor and the toString method*/
+	/** Tests the constructor and the toString method.*/
 	@Test
 	public void testDateAndToString() {
 		Date date = new Date(12,12,2012);
 		assertEquals(date.toString(),"12/12/2012");
 	}
-	
+	/** Tests the equals method.*/
 	@Test
 	public void testEquals() {
 		Date date = new Date(12,12,2012);
