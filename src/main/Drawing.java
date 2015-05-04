@@ -53,7 +53,7 @@ public class Drawing {
 	 * @return String
 	 */
 	public String toString() {
-		String s = date.toString() + " ";
+		String s = date.toString() + ", ";
 		for(int c : this.numbers) {
 			s += c + ", ";
 		}
@@ -97,7 +97,7 @@ public class Drawing {
 		Drawing d = new Drawing(i,color, date);
 		return d;
 	}
-	/** Returns a Drawing as a String to be written
+	/** Returns a Drawing as a String to be written.
 	 * 
 	 * @return String
 	 */

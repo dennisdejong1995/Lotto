@@ -1,5 +1,5 @@
 package main;
-/** Class that stores a date
+/** Class that stores a date.
  * 
  * @author Dennis de Jong
  * @version 04-05-2015
