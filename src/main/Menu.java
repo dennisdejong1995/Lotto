@@ -150,6 +150,7 @@ public class Menu {
 		}
 
 		System.out.println("Second:");
+		
 		while(i[1] < 1 || i[1] > 45){
 			i[1] = sc.nextInt();
 			if(i[1] < 1 || i[1] > 45){
