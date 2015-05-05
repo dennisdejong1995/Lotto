@@ -18,9 +18,9 @@ public class Drawing {
 	
 	/** Constructor of Drawing.
 	 * 
-	 * @param numbers
-	 * @param colour
-	 * @param date
+	 * @param numbers The numbers of a Drawing.
+	 * @param colour The colour of a Drawing.
+	 * @param date	The date of the Drawing.
 	 */
 	public Drawing(int[] numbers, String colour, Date date) {
 		this.numbers = numbers;
@@ -62,7 +62,7 @@ public class Drawing {
 	}
 	/** Returns true if two Drawings are the same.
 	 * 
-	 * @param obj
+	 * @param obj An Object that is compared with this Drawing if the Object is a Drawing
 	 * @return boolean
 	 */
 	public boolean equals(Object obj) {
@@ -74,8 +74,8 @@ public class Drawing {
 	}
 	/** Reads a Drawing from a txt file and returns it.
 	 * 
-	 * @param sc
-	 * @return Drawing
+	 * @param sc Scanner scanning a string to read in the drawing.
+	 * @return Drawing 
 	 */
 	public static Drawing read(Scanner sc){
 		
@@ -99,7 +99,7 @@ public class Drawing {
 	}
 	/** Returns a Drawing as a String to be written.
 	 * 
-	 * @return String
+	 * @return String 
 	 */
 	public String write() {
 		return this.date.toString() + " " +this.numbers[0] + " " + this.numbers[1] + " " + this.numbers[2] + " " + this.numbers[3] + " " + this.numbers[4] + " " + this.numbers[5] + " " + this.colour + "\n";
