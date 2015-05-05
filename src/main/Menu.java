@@ -3,6 +3,7 @@ package main;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -33,9 +34,10 @@ public class Menu {
 	public static void menu() throws IOException{
 		System.out.println("Select an option:");
 		System.out.println("1) Add a drawing.");
-		System.out.println("2) Print the list of Drawings");
-		System.out.println("3) Edit a drawing");
-		System.out.println("4) Close the program");
+		System.out.println("2) Print the list of drawings.");
+		System.out.println("3) Edit a drawing.");
+		System.out.println("4) Delete a drawing.");
+		System.out.println("5) Close the program.");
 		int choice = sc.nextInt();
 		if(choice == 1) {
 			addDrawing();
@@ -43,13 +45,16 @@ public class Menu {
 		if(choice == 2) {
 			printList();
 		}
-		if(choice == 3){
+		if(choice == 3) {
 			editList();
 		}
 		if(choice == 4) {
+			removeDrawing();
+		}
+		if(choice == 5) {
 			closeProgram();
 		}
-		if(choice<1 || choice>4){
+		if(choice<1 || choice>5){
 			System.out.println("Not a correct choice.");
 		}
 	}
@@ -58,7 +63,29 @@ public class Menu {
 		p = 0;
 		System.out.println("Program is closed.");
 	}
-
+	
+	/** Method that removes a Drawing according to the given Date.
+	 * 
+	 * @throws FileNotFoundException
+	 */
+	public static void removeDrawing() throws FileNotFoundException{
+		DrawingStorage ds = DrawingStorage.read("Input");
+		Drawing d = null;
+		System.out.println("Enter the date of the drawing you want to remove.");
+		Date date = dateIn();
+		for(Drawing dr : ds.getdList()) {
+			if(dr.getDate().equals(date)) {
+				d = dr;
+			}
+		}
+		if(d == null) {
+			System.out.println("Drawing not found.");
+			return;
+		}
+		System.out.println("The drawing from "+date.toString()+" is removed.");
+		ds.removeDrawing(d);
+		ds.write("Input");
+	}
 	/** Method that prints the list of Drawings in the txt file.
 	 * 
 	 * @throws IOException
@@ -99,15 +126,20 @@ public class Menu {
 			if(n == 1){
 				System.out.println("Enter the correct date:");
 				date2 = dateIn();
+				System.out.println("The date has been changed from "+date.toString()+" to "+ date2.toString()+".");
 				o = 1;
 			} else if(n == 2) {
 				System.out.println("Enter the correct Numbers:");
+				int[] numbersOld = numbers;
 				numbers = numbersIn();
+				System.out.println("The numbers has been changed from "+Arrays.toString(numbersOld)+" to "+Arrays.toString(numbers)+".");
+				
 				o = 1;
 			} else if(n == 3) {
 				System.out.println("Enter the correct Colour:");
-
+				String colourOld = colour;
 				colour = colourIn();
+				System.out.println("The colour has been changed from "+colourOld+" to "+colour+".");
 				o = 1;
 
 			} else {
