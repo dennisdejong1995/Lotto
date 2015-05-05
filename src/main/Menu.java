@@ -19,8 +19,8 @@ public class Menu {
 	static Scanner sc = new Scanner(System.in);
 	/** Main of the program.
 	 * 
-	 * @param args
-	 * @throws IOException 
+	 * @param args 
+	 * @throws IOException Gets the IOException from the menu method.
 	 */
 	public static void main(String[] args) throws IOException{
 		while(p == 1){
@@ -29,7 +29,7 @@ public class Menu {
 	}
 	/** Method that runs the menu.
 	 * 
-	 * @throws IOException
+	 * @throws IOException Throws an IOException if there is a problem with one of the files in one of the methods it calls.
 	 */
 	public static void menu() throws IOException{
 		System.out.println("Select an option:");
@@ -66,7 +66,7 @@ public class Menu {
 	
 	/** Method that removes a Drawing according to the given Date.
 	 * 
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException Throws a FileNotFoundException if the given file doesn't excist.
 	 */
 	public static void removeDrawing() throws FileNotFoundException{
 		DrawingStorage ds = DrawingStorage.read("Input");
@@ -88,7 +88,7 @@ public class Menu {
 	}
 	/** Method that prints the list of Drawings in the txt file.
 	 * 
-	 * @throws IOException
+	 * @throws IOException Throws an IOException if the given file is not correct.
 	 */
 	public static void printList() throws IOException{
 		DrawingStorage ds = DrawingStorage.read("input");
@@ -96,7 +96,7 @@ public class Menu {
 	}
 	/** Method that lets the user edit a Drawing in the txt file
 	 * 
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException Throws a FileNotFoundException if the given file doesn't excist.
 	 */
 	public static void editList() throws FileNotFoundException {
 		DrawingStorage ds = DrawingStorage.read("input");
@@ -153,7 +153,7 @@ public class Menu {
 
 	/** Method that lets the user add a Drawing to the txt file.
 	 * 
-	 * @throws IOException
+	 * @throws IOException Throws an IOException if the given file is not correct.
 	 */
 	public static void addDrawing() throws IOException {
 		DrawingStorage ds = DrawingStorage.read("input");
