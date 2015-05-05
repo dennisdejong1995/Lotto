@@ -170,7 +170,10 @@ public class Menu {
 		ds.addDrawing(drawing);
 		ds.write("input");
 	}
-
+	/** Method that asks the user for six numbers and returns it.
+	 * 
+	 * @return int[]
+	 */
 	public static int[] numbersIn(){
 		System.out.println("First:");
 		int[] i = {-1,-1,-1,-1,-1,-1};
@@ -222,6 +225,10 @@ public class Menu {
 		}
 		return i;
 	}
+	/** Method that ask a user for a Date and returns it.
+	 * 
+	 * @return Date
+	 */
 	public static Date dateIn(){
 		int day = 0;
 		int month = 0;
@@ -257,7 +264,10 @@ public class Menu {
 		Date date = new Date(day, month, year);
 		return date;
 	}
-
+	/** Method that asks the user for a colour and returns it.
+	 * 
+	 * @return String
+	 */
 	public static String colourIn(){
 		String s = "";
 		while(!s.equals("blauw") && !s.equals("rood") && !s.equals("groen") && !s.equals("geel") && !s.equals("paars") && !s.equals("oranje")){
